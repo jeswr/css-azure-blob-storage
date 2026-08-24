@@ -1,0 +1,60 @@
+{
+  "@context": [
+    "https://linkedsoftwaredependencies.org/bundles/npm/@solid/community-server/^8.0.0/components/context.jsonld",
+    "https://linkedsoftwaredependencies.org/bundles/npm/@jeswr/css-azure-blob-storage/^0.0.0/components/context.jsonld"
+  ],
+  "@graph": [
+    {
+      "@id": "urn:solid-server-app-setup:default:CliExtractor",
+      "@type": "YargsCliExtractor",
+      "parameters": [
+        {
+          "@type": "YargsParameter",
+          "name": "azureStorageAccountName",
+          "options": {
+            "demandOption": true,
+            "requiresArg": true,
+            "type": "string",
+            "describe": "Azure Storage account used for CSS resources."
+          }
+        },
+        {
+          "@type": "YargsParameter",
+          "name": "azureStorageContainerName",
+          "options": {
+            "demandOption": true,
+            "requiresArg": true,
+            "type": "string",
+            "describe": "Existing private Azure Blob container used for CSS resources."
+          }
+        },
+        {
+          "@type": "YargsParameter",
+          "name": "azureStorageRootPath",
+          "options": {
+            "requiresArg": true,
+            "type": "string",
+            "describe": "Optional blob prefix used to isolate this CSS instance."
+          }
+        },
+        {
+          "@type": "YargsParameter",
+          "name": "azureManagedIdentityClientId",
+          "options": {
+            "requiresArg": true,
+            "type": "string",
+            "describe": "Client ID of a user-assigned managed identity; omit for system-assigned identity."
+          }
+        },
+        {
+          "@type": "YargsParameter",
+          "name": "azureUseManagedIdentity",
+          "options": {
+            "type": "boolean",
+            "describe": "Use only managed identity for Azure Storage; disable for local development credentials."
+          }
+        }
+      ]
+    }
+  ]
+}

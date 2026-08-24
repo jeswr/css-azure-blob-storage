@@ -1,0 +1,25 @@
+{
+  "@context": [
+    "https://linkedsoftwaredependencies.org/bundles/npm/@solid/community-server/^8.0.0/components/context.jsonld",
+    "https://linkedsoftwaredependencies.org/bundles/npm/@jeswr/css-azure-blob-storage/^0.0.0/components/context.jsonld"
+  ],
+  "@graph": [
+    {
+      "comment": "Connects to Azure Blob Storage using managed identity by default.",
+      "@id": "urn:solid-server:default:AzureBlobStorage",
+      "@type": "AzureBlobStorageClient",
+      "args_accountName": { "@id": "urn:solid-server:azure:variable:storageAccountName" },
+      "args_containerName": { "@id": "urn:solid-server:azure:variable:storageContainerName" },
+      "args_managedIdentityClientId": { "@id": "urn:solid-server:azure:variable:managedIdentityClientId" },
+      "args_useManagedIdentity": { "@id": "urn:solid-server:azure:variable:useManagedIdentity" }
+    },
+    {
+      "comment": "Stores CSS resources and RDF metadata in Azure Blob Storage.",
+      "@id": "urn:solid-server:default:AzureBlobDataAccessor",
+      "@type": "AzureBlobDataAccessor",
+      "args_baseUrl": { "@id": "urn:solid-server:default:variable:baseUrl" },
+      "args_storage": { "@id": "urn:solid-server:default:AzureBlobStorage" },
+      "args_rootPath": { "@id": "urn:solid-server:azure:variable:storageRootPath" }
+    }
+  ]
+}

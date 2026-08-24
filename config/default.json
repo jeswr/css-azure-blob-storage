@@ -1,0 +1,42 @@
+{
+  "@context": [
+    "https://linkedsoftwaredependencies.org/bundles/npm/@solid/community-server/^8.0.0/components/context.jsonld",
+    "https://linkedsoftwaredependencies.org/bundles/npm/@jeswr/css-azure-blob-storage/^0.0.0/components/context.jsonld"
+  ],
+  "import": [
+    "azb:config/cli.json",
+    "azb:config/resolver.json",
+    "azb:config/data-accessor.json"
+  ],
+  "@graph": [
+    {
+      "comment": "A default store setup with an Azure Blob Storage backend.",
+      "@id": "urn:solid-server:default:ResourceStore_Backend",
+      "@type": "DataAccessorBasedStore",
+      "identifierStrategy": { "@id": "urn:solid-server:default:IdentifierStrategy" },
+      "auxiliaryStrategy": { "@id": "urn:solid-server:default:AuxiliaryStrategy" },
+      "accessor": { "@id": "urn:solid-server:default:AzureBlobDataAccessor" },
+      "metadataStrategy": { "@id": "urn:solid-server:default:MetadataStrategy" }
+    },
+    {
+      "@id": "urn:solid-server:azure:variable:storageAccountName",
+      "@type": "Variable"
+    },
+    {
+      "@id": "urn:solid-server:azure:variable:storageContainerName",
+      "@type": "Variable"
+    },
+    {
+      "@id": "urn:solid-server:azure:variable:storageRootPath",
+      "@type": "Variable"
+    },
+    {
+      "@id": "urn:solid-server:azure:variable:managedIdentityClientId",
+      "@type": "Variable"
+    },
+    {
+      "@id": "urn:solid-server:azure:variable:useManagedIdentity",
+      "@type": "Variable"
+    }
+  ]
+}
